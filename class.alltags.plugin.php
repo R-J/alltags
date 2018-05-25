@@ -2,7 +2,7 @@
 
 class AllTagsPlugin extends Gdn_Plugin {
     public function vanillaController_allTags_create($sender, $args) {
-saveToCOnfig('alltags.SortOrder', 'Count');
+saveToCOnfig('alltags.SortOrder', 'Name');
         // Prepare Vanilla page.
         $sender->masterView();
         foreach (c('Modules.Vanilla.Panel') as $module) {
@@ -31,5 +31,14 @@ saveToCOnfig('alltags.SortOrder', 'Count');
         ]);
 
         $sender->render('alltags', '', 'plugins/alltags');
+    }
+
+    public function base_afterDiscussionFilters_handler($sender) {
+        if ($sender->SelfUrl == 'vanilla/alltags') {
+            $css = ' class="Active"';
+        } else {
+            $css = '';
+        }
+        echo "<li{$css}>".anchor(sprite('SpAllTags').' '.t('All Tags'), '/vanilla/alltags').'</li>';
     }
 }
