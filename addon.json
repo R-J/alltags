@@ -1,0 +1,20 @@
+{
+    "name": "All Tags",
+    "description": "Add a page which shows all tags",
+    "version": "0.0.1",
+    "license": "MIT",
+    "type": "addon",
+    "key": "alltags",
+    "mobileFriendly": true,
+    "hasLocale": true,
+    "pluginUrl": "https://github.com/r-j/alltags",
+    "authors": [
+        {
+            "name": "Robin Jurinka",
+            "homepage": "https://open.vanillaforums.com/profile/r_j"
+        }
+    ],
+    "require": {
+        "vanilla": ">=2.6"
+    }
+}
