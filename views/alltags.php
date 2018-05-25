@@ -4,9 +4,15 @@ $format = t(
     '%1$s<span class="Aside"><span class="Count">%2$d</span></span>'
 );
 ?>
-<ul class="PanelInfo">
+<style>
+.AllTagsList {width: 200px;}
+</style>
+<h1><?= $this->title() ?></h1>
+<h2 class="sr-only"><?= t('Tag List') ?></h2>
+<div class="PanelColumn">
+<ul class="AllTagsList PanelInfo">
 <?php foreach ($this->data('Tags') as $tag): ?>
-    <li class="Item"><?php echo anchor(
+    <li><?php echo anchor(
         sprintf(
             $format,
             Gdn_Format::plainText($tag['FullName']),
@@ -16,3 +22,4 @@ $format = t(
     ) ?></li>
 <?php endforeach ?>
 </ul>
+</div>
