@@ -1,7 +1,7 @@
 {
     "name": "All Tags",
-    "description": "Add a page which shows all tags",
-    "version": "0.0.1",
+    "description": "Add a page to Discussion Filter menu which shows all tags",
+    "version": "0.1.0",
     "license": "MIT",
     "type": "addon",
     "key": "alltags",
@@ -15,6 +15,6 @@
         }
     ],
     "require": {
-        "vanilla": ">=2.6"
+        "vanilla": ">=2.5"
     }
 }
