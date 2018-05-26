@@ -1,13 +1,14 @@
 {
     "name": "All Tags",
     "description": "Add a page to Discussion Filter menu which shows all tags",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "license": "MIT",
     "type": "addon",
     "key": "alltags",
     "mobileFriendly": true,
     "hasLocale": true,
     "pluginUrl": "https://github.com/r-j/alltags",
+    "settingsUrl": "dashboard/settings/alltags",
     "authors": [
         {
             "name": "Robin Jurinka",

@@ -3,11 +3,12 @@
 $PluginInfo['alltags'] = [
    'Name' => 'All Tags',
     'Description' => 'Add a page to Discussion Filter menu which shows all tags',
-    'Version' => '0.1.0',
+    'Version' => '0.2.0',
     'License' => 'MIT',
     'Type' => 'addon',
-    'MobileFriendly': true,
-    'HasLocale': true,
+    'MobileFriendly' => true,
+    'HasLocale' => true,
+    'SettingsUrl' => 'dashboard/settings/alltags',
     'PluginUrl' => 'https://github.com/r-j/alltags',
     'Author' => 'Robin Jurinka',
     'AuthorUrl' => 'https://open.vanillaforums.com/profile/r_j',
@@ -65,5 +66,34 @@ class AllTagsPlugin extends Gdn_Plugin {
             $css = '';
         }
         echo "<li{$css}>".anchor(sprite('SpAllTags').' '.t('All Tags'), '/vanilla/alltags').'</li>';
+    }
+
+    /**
+     * Add settings page.
+     *
+     * @param SettingsController $sender Instance of the calling class.
+     *
+     * @return void.
+     */
+    public function settingsController_allTags_create($sender) {
+        $sender->permission('Garden.Settings.Manage');
+
+        $sender->addSideMenu('dashboard/settings/plugins');
+        $sender->setData('Title', t('All Tags Settings'));
+
+        $configurationModule = new configurationModule($sender);
+        $configurationModule->initialize([
+            'alltags.SortOrder' => [
+                'Control' => 'DropDown',
+                'Items' => [
+                    'Name' => 'Name',
+                    'Count' => 'Usage Count'
+                ],
+                'LabelCode' => 'Sort Order',
+                'Description' => 'Choose by which field the tags should be sorted.',
+                'Options' => ['IncludeNull' => false]
+            ]
+        ]);
+        $configurationModule->renderAll();
     }
 }
