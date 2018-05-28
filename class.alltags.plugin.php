@@ -2,8 +2,8 @@
 
 $PluginInfo['alltags'] = [
    'Name' => 'All Tags',
-    'Description' => 'Add a page to Discussion Filter menu which shows all tags',
-    'Version' => '0.2.0',
+    'Description' => 'Add a page to Discussion Filter menu which shows all tags.<br>Icon kindly donated by <a href="http://www.vanillaskins.com/">VanillaSkins</a>',
+    'Version' => '0.2.1',
     'License' => 'MIT',
     'Type' => 'addon',
     'MobileFriendly' => true,
