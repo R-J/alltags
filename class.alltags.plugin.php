@@ -11,14 +11,14 @@ class AllTagsPlugin extends Gdn_Plugin {
     public function vanillaController_allTags_create($sender) {
         // Prepare Vanilla page.
         $sender->masterView();
-        foreach (c('Modules.Vanilla.Panel') as $module) {
+        foreach (Gdn::config('Modules.Vanilla.Panel') as $module) {
             if ($module != 'MeModule') {
                 $sender->addModule($module);
             }
         }
 
         // Determine sort order for list of tags.
-        if (c('alltags.SortOrder', 'Name') == 'Name') {
+        if (Gdn::config('alltags.SortOrder', 'Name') == 'Name') {
             $orderBy = 'FullName';
             $orderDirection = 'asc';
         } else {
@@ -28,8 +28,8 @@ class AllTagsPlugin extends Gdn_Plugin {
 
         // Pass data to view.
         $sender->setData([
-            'Title' => t('All Tags'),
-            'Breadcrumbs' => [['Name' => t('All Tags'), 'Url' => 'vanilla/alltags']],
+            'Title' => Gdn::translate('All Tags'),
+            'Breadcrumbs' => [['Name' => Gdn::translate('All Tags'), 'Url' => 'vanilla/alltags']],
             'Tags' => TagModel::instance()->get($orderBy, $orderDirection)->resultArray()
         ]);
 
@@ -50,7 +50,7 @@ class AllTagsPlugin extends Gdn_Plugin {
         } else {
             $css = '';
         }
-        echo "<li{$css}>".anchor(sprite('SpAllTags').' '.t('All Tags'), '/vanilla/alltags').'</li>';
+        echo "<li{$css}>".anchor(sprite('SpAllTags').' '.Gdn::translate('All Tags'), '/vanilla/alltags').'</li>';
     }
 
     /**
@@ -63,8 +63,8 @@ class AllTagsPlugin extends Gdn_Plugin {
     public function settingsController_allTags_create($sender) {
         $sender->permission('Garden.Settings.Manage');
 
-        $sender->addSideMenu('dashboard/settings/plugins');
-        $sender->setData('Title', t('All Tags Settings'));
+        $sender->setHighlightRoute('dashboard/settings/plugins');
+        $sender->setData('Title', Gdn::translate('All Tags Settings'));
 
         $configurationModule = new configurationModule($sender);
         $configurationModule->initialize([
