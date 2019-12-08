@@ -1,20 +1,5 @@
 <?php
 
-$PluginInfo['alltags'] = [
-   'Name' => 'All Tags',
-    'Description' => 'Add a page to Discussion Filter menu which shows all tags.<br>Icon kindly donated by <a href="http://www.vanillaskins.com/">VanillaSkins</a>',
-    'Version' => '0.2.1',
-    'License' => 'MIT',
-    'Type' => 'addon',
-    'MobileFriendly' => true,
-    'HasLocale' => true,
-    'SettingsUrl' => 'dashboard/settings/alltags',
-    'PluginUrl' => 'https://github.com/r-j/alltags',
-    'Author' => 'Robin Jurinka',
-    'AuthorUrl' => 'https://open.vanillaforums.com/profile/r_j',
-    'RequiredApplications' => ['Vanilla' => '2.5'],
-];
-
 class AllTagsPlugin extends Gdn_Plugin {
     /**
      * Create a new page containing a list of all tags.
