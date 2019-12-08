@@ -13,16 +13,14 @@ $format = Gdn::translate(
     <ul class="AllTagsList PanelInfo">
     <?php foreach ($this->data('Tags') as $tag): ?>
         <li>
-        <?php
-        echo anchor(
+        <?= anchor(
             sprintf(
                 $format,
-                Gdn_Format::plainText($tag['FullName']),
+                Gdn::formatService()->renderPlainText($tag['FullName'], 'Html'),
                 $tag['CountDiscussions']
             ),
-            '/discussions/tagged/'.Gdn_Format::plainText($tag['Name'])
-        );
-        ?>
+            '/discussions/tagged/'.Gdn::formatService()->renderPlainText($tag['Name'], 'Html')
+        ) ?>
         </li>
     <?php endforeach ?>
     </ul>
