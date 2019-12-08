@@ -1,7 +1,7 @@
 {
     "name": "All Tags",
     "description": "Add a page to Discussion Filter menu which shows all tags.<br>Icon kindly donated by <a href=\"http://www.vanillaskins.com/\">VanillaSkins</a>",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "license": "MIT",
     "type": "addon",
     "key": "alltags",
